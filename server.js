@@ -33,6 +33,32 @@ var customers = [
     }      
 ];
 
+
+var waitList = [
+    
+  {
+      routeName: "alfred",
+      customerName: "Bonnie",
+      phoneNumber: "3552003265",
+      customerEmail: "alfred@some",
+      customerID: "1"
+  },
+  {
+      routeName: "raymond",
+      customerName: "Bob",
+      phoneNumber: "7856666355",
+      customerEmail: "raymond@some",
+      customerID: "2"
+  },
+  {
+      routeName: "William",
+      customerName: "Will",
+      phoneNumber: "98512663232",
+      customerEmail: "tina@some",
+      customerID: "3"
+  }      
+];
+
 app.get("/", function(req, res) {
  res.sendFile(path.join(__dirname, "home.html"));
 });
@@ -48,6 +74,10 @@ app.get("/tables", function(req, res) {
 // What does this route do?
 app.get("/api/customers", function(req, res) {
     return res.json(customers);
+  });
+
+  app.get("/api/wait", function(req, res) {
+    return res.json(waitList);
   });
 
 // What does this route do?
