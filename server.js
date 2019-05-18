@@ -11,21 +11,21 @@ app.use(express.json());
 var customers = [
     
     {
-        routeName = "alfred",
+        routeName: "alfred",
         customerName: "Alfred",
         phoneNumber: "3552003265",
         customerEmail: "alfred@some",
         customerID: "1"
     },
     {
-        routeName = "raymond",
+        routeName: "raymond",
         customerName: "Raymond",
         phoneNumber: "7856666355",
         customerEmail: "raymond@some",
         customerID: "2"
     },
     {
-        routeName = "tina",
+        routeName: "tina",
         customerName: "Tina",
         phoneNumber: "98512663232",
         customerEmail: "tina@some",
@@ -34,14 +34,21 @@ var customers = [
 ];
 
 app.get("/", function(req, res) {
- res.send("we are the awesomeness alive");
+ res.sendFile(path.join(__dirname, "home.html"));
 });
+
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+ });
+
+ app.get("/reserve", function(req, res) {
+  res.sendFile(path.join(__dirname, "reserve.html"));
+ });
 
 // What does this route do?
 app.get("/api/customers", function(req, res) {
     return res.json(customers);
   });
-
 
 // What does this route do?
 app.get("/api/customers/:customer", function(req, res) {
